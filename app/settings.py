@@ -25,7 +25,7 @@ SECRET_KEY = '_ednk%i^k*pcfc+9j6et51dlh)hhea9igf3i**tb!buh(gjori'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,10 +79,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'appdb',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
+        'HOST': 'dj_test_db',
+        'PORT': 5432
+        # 'NAME': 'appdb_test',
+        # 'USER': 'dj_test',
+        # 'PASSWORD': '123',
+        # 'HOST': 'localhost',
     }
 }
 
@@ -128,3 +132,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
