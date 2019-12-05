@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                        "django_excel.TemporaryExcelFileUploadHandler")
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -80,12 +83,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
+        'USER': 'test',
         'HOST': 'dj_test_db',
-        'PORT': 5432
+        'PORT': 5432,
         # 'NAME': 'appdb_test',
         # 'USER': 'dj_test',
-        # 'PASSWORD': '123',
+        'PASSWORD': 'test',
         # 'HOST': 'localhost',
     }
 }

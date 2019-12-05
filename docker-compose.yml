@@ -3,6 +3,12 @@ version: '3.6'
 services:
   dj_test_db:
     image: postgres:10.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-test}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-test}
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
   web:
@@ -14,3 +20,6 @@ services:
       - 8000:8000
     depends_on:
       - dj_test_db
+
+volumes:
+  postgres_data:
